@@ -1606,3 +1606,21 @@ section {
     padding: 2px 0;
   }
 }
+.floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+  from {
+    transform: translate(0, 0px);
+  }
+  65% {
+    transform: translate(0, -10px);
+  }
+  to {
+    transform: translate(0, -0px);
+  }
+}
