@@ -226,6 +226,26 @@
       clickable: true,
     },
   });
+  new Swiper(".product-slider", {
+    speed: 600,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    slidesPerView: "auto",
+    preloadImages: false,
+    lazy: true,
+    breakpoints: {
+      768: {
+        slidesPerView: 1,
+      },
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+    },
+  });
 
   /**
    * Porfolio isotope and filter
@@ -357,3 +377,188 @@
     document.body.appendChild(css);
   };
 })();
+
+// data
+const productData = [
+  {
+    src: "assets/img/src/5.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/6.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/7.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/8.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/9.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/10.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/11.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/12.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/13.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/14.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/15.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/16.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/17.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/19.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/21.jpg",
+    type: "filter-card",
+  },
+  {
+    src: "assets/img/src/22.jpg",
+    type: "filter-card",
+  },
+  {
+    src: "assets/img/src/33.jpg",
+    type: "filter-card",
+  },
+  {
+    src: "assets/img/src/40.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/41.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/42.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/43.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/44.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/45.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/46.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/47.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/48.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/49.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/50.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/51.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/52.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/53.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/54.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/55.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/56.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/57.jpg",
+    type: "filter-app",
+  },
+  {
+    src: "assets/img/src/58.jpg",
+    type: "filter-app",
+  },
+];
+
+const dataContainer = document.querySelector(".portfolio-container");
+let htmlData = productData
+  .splice(0, 17)
+  .map((item) => {
+    return `
+    <div class="col-lg-4 col-md-6 portfolio-item ${item.type}">
+      <img src=${item.src} class="img-fluid" alt="">
+      <div class="portfolio-info">
+        <h4>Ảnh thật</h4>
+        <a href="assets/img/src/5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"
+          title="Ảnh thật"><i class="bi bi-zoom-in"></i></a>
+      </div>
+    </div>`;
+  })
+  .join("");
+dataContainer.innerHTML = htmlData;
+
+// swiper
+
+const swiperWrap = document.querySelector(".product-swiper-wrap");
+
+let htmlDataSlide = productData
+  .reverse()
+  .map((item) => {
+    return `
+    <div class="swiper-slide">
+      <div class="product-item">
+        <img data-src=${item.src} class="swiper-lazy" />
+        <div class="swiper-lazy-preloader"></div>
+      </div>
+    </div>`;
+  })
+  .join("");
+swiperWrap.innerHTML = htmlDataSlide;
+
+// scroll
