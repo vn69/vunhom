@@ -379,7 +379,7 @@
 })();
 
 // data
-const productData = [
+const productDataList = [
   {
     src: "assets/img/src/5.jpg",
     type: "filter-app",
@@ -527,7 +527,7 @@ const productData = [
 ];
 
 const dataContainer = document.querySelector(".portfolio-container");
-let htmlData = productData
+let htmlData = productDataList
   .splice(0, 17)
   .map((item) => {
     return `
@@ -547,7 +547,7 @@ dataContainer.innerHTML = htmlData;
 
 const swiperWrap = document.querySelector(".product-swiper-wrap");
 
-let htmlDataSlide = productData
+let htmlDataSlide = productDataList
   .reverse()
   .map((item) => {
     return `
